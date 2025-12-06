@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+
+
+/* --- PRINT SAFE GLOBALS ------------------------ */
+@media print {
+
+  /* Hide screen-only elements */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Expand everything */
+  * {
+    overflow: visible !important;
+  }
+
+  .no-print-scroll {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .pdf-section-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+
+@media print {
+  .print-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    display: block !important;
+  }
+}
+@media print {
+  .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+@media print {
+  * {
+    overflow: visible !important;
+  }
+}
+
+@media print {
+  /* Remove left margin when printing */
+  .print-remove-ml {
+    margin-left: 0 !important;
+  }
+
+  /* Convert main layout from row → column */
+  .print-force-column {
+    display: block !important;
+  }
+
+  /* Expand main content full width */
+  .print-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  /* Hide sidebar completely */
+  .print-hide {
+    display: none !important;
+  }
+}
